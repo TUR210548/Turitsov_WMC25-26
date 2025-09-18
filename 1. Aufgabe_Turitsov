@@ -1,0 +1,8 @@
+Button
+
+Die Funktion Button dient dazu, eine Schaltfläche darzustellen, auf die Nutzer klicken können.
+Ein Button löst beim Anklicken eine bestimmte Aktion aus, wie z. B. das Absenden eines Formulars oder das Starten einer Funktion.
+Er ist also ein zentrales Steuerelement in Benutzeroberflächen.
+
+Beispiel:
+<button onclick="alert('Hallo Welt!')">Klick mich</button>
