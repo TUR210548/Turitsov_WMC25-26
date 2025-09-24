@@ -1,132 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stadtpark Aktivitäten</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: #4CAF50;
-      color: white;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-    }
-    header h1 { margin: 0; }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-    main section {
-      padding: 2rem 1rem;
-      min-height: 50vh;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #aaa;
-      padding: 0.5rem;
-      text-align: left;
-    }
-    thead { background: #ddd; }
-    tbody tr:nth-child(even) { background: #f1f1f1; }
-    form {
-      display: grid;
-      gap: 0.5rem;
-      max-width: 400px;
-    }
-    input, textarea, button {
-      padding: 0.5rem;
-      border: 1px solid #aaa;
-    }
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Café Kleiner Sonntag — Übungsseite</title>
+  <link rel="stylesheet" href="css/theme-light.css" id="theme-link">
+  <!-- Zusätzliche Theme-Option:
+       <link rel="stylesheet" href="css/theme-accent.css" id="theme-link"> -->
 </head>
 <body>
   <header>
-    <h1>Stadtpark Aktivitäten</h1>
-    <nav>
-      <ul>
-        <li><a href="#angebote">Angebote</a></li>
-        <li><a href="#kalender">Kalender</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
+    <div class="container header-inner">
+      <h1>Café Kleiner Sonntag</h1>
+      <p class="tagline">Kleines Café · Kuchen · entspannte Atmosphäre</p>
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-list">
+          <li><a href="#info">Info</a></li>
+          <li><a href="#speisekarte">Speisekarte</a></li>
+          <li><a href="#team">Team</a></li>s
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="angebote">
-      <h2>Angebote</h2>
-      <p>Im Stadtpark gibt es viele Freizeitangebote für Groß und Klein.</p>
+  <main class="container">
+    <section id="info" aria-labelledby="info-heading">
+      <h2 id="info-heading">Über uns</h2>
+      <p>
+        Das Café Kleiner Sonntag ist ein gemütlicher Treffpunkt für Frühstück, Kaffee und Kuchen.
+        Wir legen Wert auf regionale Zutaten und eine entspannte Atmosphäre.
+      </p>
+      <p>
+        Öffnungszeiten: Mo–Fr 08:00–18:00, Sa–So 09:00–16:00.
+      </p>
+      <figure>
+        <!-- Lege Bilder lokal in images/ (z. B. images/cafe-front.jpg) -->
+        <img src="images/cafe-front.jpg" alt="Vorderansicht des Cafés mit Außenbestuhlung" width="800" />
+        <figcaption>Außenansicht des Café Kleiner Sonntag.</figcaption>
+      </figure>
+    </section>
+
+    <section id="speisekarte" aria-labelledby="menu-heading">
+      <h2 id="menu-heading">Speisekarte (Auszug)</h2>
+      <p>Ein paar unserer Favoriten — täglich frisch zubereitet.</p>
+
+      <!-- Tabelle mit caption, thead, tbody, mindestens 10 Zeilen -->
       <table>
+        <caption>Speisekarte — Preise in €</caption>
         <thead>
           <tr>
-            <th>Tag</th>
-            <th>Aktivität</th>
-            <th>Ort</th>
+            <th scope="col">Nr.</th>
+            <th scope="col">Gericht/Getränk</th>
+            <th scope="col">Beschreibung</th>
+            <th scope="col">Preis</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Montag</td><td>Yoga</td><td>Wiese</td></tr>
-          <tr><td>Dienstag</td><td>Gitarrenkurs</td><td>Bühne</td></tr>
-          <tr><td>Mittwoch</td><td>Slackline</td><td>Sportbereich</td></tr>
-          <tr><td>Donnerstag</td><td>Kunstkurs</td><td>Pavillon</td></tr>
-          <tr><td>Freitag</td><td>Kino</td><td>Hauptplatz</td></tr>
-          <tr><td>Samstag</td><td>Volleyball</td><td>Sportplatz</td></tr>
-          <tr><td>Sonntag</td><td>Picknick</td><td>Wiese Süd</td></tr>
-          <tr><td>Montag</td><td>Jogging</td><td>Rundweg</td></tr>
-          <tr><td>Dienstag</td><td>Fotowalk</td><td>See</td></tr>
-          <tr><td>Mittwoch</td><td>Tanz</td><td>Bühne</td></tr>
+          <tr><td>1</td><td>Filterkaffee</td><td>Regionale Bohnen, frisch gebrüht</td><td>2,50</td></tr>
+          <tr><td>2</td><td>Espresso</td><td>Intensiv, 30 ml</td><td>1,80</td></tr>
+          <tr><td>3</td><td>Cappuccino</td><td>Schaumkrone, 200 ml</td><td>3,20</td></tr>
+          <tr><td>4</td><td>Latte</td><td>Milchkaffee, groß</td><td>3,60</td></tr>
+          <tr><td>5</td><td>Streuselkuchen</td><td>Täglich wechselnd</td><td>2,90</td></tr>
+          <tr><td>6</td><td>Marmeladenbrot</td><td>Hausgemachte Marmelade</td><td>2,20</td></tr>
+          <tr><td>7</td><td>Frühstücksteller</td><td>Saisonale Aufstellung, 2 Personen</td><td>8,50</td></tr>
+          <tr><td>8</td><td>Salat des Tages</td><td>Frisch und knackig</td><td>6,90</td></tr>
+          <tr><td>9</td><td>Hausgemachte Limonade</td><td>Zitronig, erfrischend</td><td>3,00</td></tr>
+          <tr><td>10</td><td>Heißer Kakao</td><td>Mit Sahne auf Wunsch</td><td>2,80</td></tr>
         </tbody>
       </table>
     </section>
 
-    <section id="kalender">
-      <h2>Aktionskalender</h2>
-      <p><strong>Herbstfest:</strong> 15. Oktober mit Musik und Spielen.</p>
-      <p><strong>Winterzauber:</strong> Ab Dezember mit Eisbahn und Markt.</p>
+    <section id="team" aria-labelledby="team-heading">
+      <h2 id="team-heading">Unser Team</h2>
+      <p>Wir stellen kurz unsere Mitarbeitenden vor.</p>
+
+      <ul class="team-list">
+        <li>
+          <img src="images/person-anna.jpg" alt="Porträt von Anna, Barista" width="120">
+          <strong>Anna</strong> — Barista & Konditorin
+        </li>
+        <li>
+          <img src="images/person-mario.jpg" alt="Porträt von Mario, Service" width="120">
+          <strong>Mario</strong> — Service & Eventkoordinator
+        </li>
+      </ul>
     </section>
 
-    <aside>
-      <h2>Hinweis</h2>
-      <p>Alle Angebote sind kostenlos. Anmeldung nur bei Gruppen nötig.</p>
+    <aside aria-labelledby="angebote-heading" class="sidebar">
+      <h3 id="angebote-heading">Aktuelle Angebote</h3>
+      <p>Montags: Studentenermäßigung. Mittwoch: Kuchen 2 für 1.</p>
     </aside>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+    <section id="kontakt" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading">Kontakt & Reservierung</h2>
+      <p>Schreibe uns oder reserviere einen Tisch.</p>
 
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email">
+      <!-- Formular -->
+      <form action="#" method="post" class="contact-form" aria-describedby="form-note">
+        <p id="form-note" class="sr-only">Alle Felder mit * sind Pflichtfelder.</p>
 
-        <label for="nachricht">Nachricht:</label>
-        <textarea id="nachricht" name="nachricht" rows="4"></textarea>
+        <label for="name">Name *</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">E-Mail *</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="date">Datum</label>
+        <input id="date" name="date" type="date">
+
+        <label for="people">Personen</label>
+        <select id="people" name="people">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5+</option>
+        </select>
+
+        <label for="message">Nachricht</label>
+        <textarea id="message" name="message" rows="4" placeholder="Wünsche / Allergien"></textarea>
 
         <button type="submit">Absenden</button>
       </form>
@@ -134,7 +127,20 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Stadtpark</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Café Kleiner Sonntag — Adresse, Telefonnummer</p>
+      <p><small>Diese Seite ist eine Übungsseite (nicht kommerziell).</small></p>
+    </div>
   </footer>
+
+  <script>
+    // kleines Script nur für das Beispiel (kein Framework)
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: Wechsel zwischen Themes (nur Demo)
+    // function switchTheme(file) {
+    //   document.getElementById('theme-link').setAttribute('href', file);
+    // }
+  </script>
 </body>
 </html>
