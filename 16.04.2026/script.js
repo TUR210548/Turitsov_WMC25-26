@@ -1,17 +1,11 @@
-import persons from "./person.json" with { type: "json" };
-console.log(persons);
+import persons from "./persons.json" with { type: "json" };
 
-// "id": 6,
-// "name": "Sophie Dubois",
-// "groesse": 168,
-// "geburtsdatum": "1994-03-10",
-// "herkunft": "Frankreich",
-// "gewicht": 59.5 -->
+let personsList = [...persons];
 
 function renderPersons() {
     const tbody = document.querySelector("#tbody");
     tbody.innerHTML = "";
-    for (const person of persons) {
+    for (const person of personsList) {
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${person.id}</td>
@@ -25,48 +19,34 @@ function renderPersons() {
     }
 }
 
-const thId = document.querySelector("#id");
-thId.addEventListener("click", () => {
-    console.log("id clicked!!");
-    persons.sort((a, b) => a.id - b.id);
+document.querySelector("#id").addEventListener("click", () => {
+    personsList.sort((a, b) => a.id - b.id);
     renderPersons();
 });
 
-const thName = document.querySelector("#name");
-thName.addEventListener("click", () => {
-    console.log("name clicked!!");
-    persons.sort((a, b) => a.name.localeCompare(b.name));
+document.querySelector("#name").addEventListener("click", () => {
+    personsList.sort((a, b) => a.name.localeCompare(b.name));
     renderPersons();
 });
 
-const thHeight = document.querySelector("#groesse");
-thHeight.addEventListener("click", () => {
-    console.log("height clicked!!");
-    persons.sort((a, b) => a.groesse - b.groesse);
+document.querySelector("#height").addEventListener("click", () => {
+    personsList.sort((a, b) => a.groesse - b.groesse);
     renderPersons();
 });
 
-const thBirthday = document.querySelector("#geburtsdatum");
-thBirthday.addEventListener("click", () => {
-    console.log("birthday clicked!!");
-    persons.sort((a, b) => a.geburtsdatum.localeCompare(b.geburtsdatum));
+document.querySelector("#birthdate").addEventListener("click", () => {
+    personsList.sort((a, b) => a.geburtsdatum.localeCompare(b.geburtsdatum));
     renderPersons();
 });
 
-const thOrigin = document.querySelector("#herkunft");
-thOrigin.addEventListener("click", () => {
-    console.log("origin clicked!!");
-    persons.sort((a, b) => a.herkunft.localeCompare(b.herkunft));
+document.querySelector("#origin").addEventListener("click", () => {
+    personsList.sort((a, b) => a.herkunft.localeCompare(b.herkunft));
     renderPersons();
 });
 
-const thWeight = document.querySelector("#gewicht");
-thWeight.addEventListener("click", () => {
-    console.log("weight clicked!!");
-    persons.sort((a, b) => a.gewicht - b.gewicht);
+document.querySelector("#weight").addEventListener("click", () => {
+    personsList.sort((a, b) => a.gewicht - b.gewicht);
     renderPersons();
 });
 
-
-window.renderPersons = renderPersons;
 renderPersons();
