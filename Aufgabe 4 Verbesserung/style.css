@@ -1,0 +1,296 @@
+/*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
+
+html {
+  color: #5e5c5c;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+:root {
+  --page-bg: linear-gradient(160deg, #dce8f3 0%, #edf4fa 48%, #d8e4ef 100%);
+  --panel-bg: rgba(255, 255, 255, 0.78);
+  --panel-border: rgba(110, 138, 166, 0.22);
+  --headline: #294155;
+  --text: #496276;
+  --muted: #73889d;
+  --accent: #7fa4c3;
+  --accent-dark: #5f88aa;
+  --surface: #dbe8f2;
+  --surface-strong: #f6fafd;
+  --done-bg: #e8f0f6;
+  --danger: #b5655d;
+  --shadow: 0 18px 44px rgba(68, 93, 118, 0.16);
+}
+
+html {
+  min-height: 100%;
+  background: var(--page-bg);
+}
+
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 28px 18px 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px 10px;
+  color: var(--text);
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+  position: relative;
+  align-content: start;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 16px;
+  max-width: 760px;
+  margin: auto;
+  border-radius: 22px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  z-index: -1;
+}
+
+body>h1,
+body>h2,
+body>ul {
+  grid-column: 1 / -1;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--headline);
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+h1::after {
+  content: "Organisiere deinen Tag klar und ohne Ablenkung.";
+  display: block;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+h2 {
+  margin-top: 6px;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+#todo-input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 15px;
+  border: 1px solid rgba(143, 167, 189, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--headline);
+  font: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+#todo-input::placeholder {
+  color: #8ea2b5;
+}
+
+#todo-input:focus {
+  outline: none;
+  border-color: rgba(111, 144, 173, 0.75);
+  box-shadow: 0 0 0 4px rgba(111, 144, 173, 0.16);
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#todo-add {
+  min-width: 96px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  box-shadow: 0 10px 24px rgba(17, 24, 32, 0.34);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(110, 138, 166, 0.14);
+  display: grid;
+  gap: 8px;
+}
+
+#todo-list:empty::before,
+#todo-list-done:empty::before {
+  display: block;
+  padding: 14px;
+  border: 1px dashed rgba(143, 167, 189, 0.24);
+  border-radius: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+#todo-list:empty::before {
+  content: "Keine offenen Aufgaben.";
+}
+
+#todo-list-done:empty::before {
+  content: "Noch nichts erledigt.";
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  border-radius: 14px;
+  background: var(--surface-strong);
+  border: 1px solid rgba(110, 138, 166, 0.12);
+  box-shadow: 0 6px 18px rgba(88, 114, 140, 0.1);
+}
+
+.todo-item.is-complete {
+  background: var(--done-bg);
+}
+
+.todo-toggle {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.todo-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+}
+
+.todo-item.is-complete .todo-text {
+  color: #8ba0b2;
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: rgba(181, 101, 93, 0.1);
+  color: var(--danger);
+  box-shadow: none;
+}
+
+.todo-delete:hover {
+  background: rgba(181, 101, 93, 0.16);
+}
+
+/* ==========================================================================
+   NEUE PRIORITÄTEN-STYLES
+   ========================================================================== */
+
+#todo-priority {
+  padding: 12px;
+  border: 1px solid rgba(143, 167, 189, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--headline);
+  font: inherit;
+  cursor: pointer;
+}
+
+.priority-badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 8px;
+  color: white;
+  display: inline-block;
+}
+
+.prio-1 { background-color: #b5655d; } /* Rot (Wichtig) */
+.prio-2 { background-color: #e69138; } /* Orange */
+.prio-3 { background-color: #7fa4c3; } /* Blau (Standard) */
+.prio-4 { background-color: #a4c2f4; } /* Hellblau */
+.prio-5 { background-color: #b6d7a8; } /* Grün (Niedrig) */
+
+@media only screen and (max-width: 40em) {
+  body {
+    grid-template-columns: 1fr;
+    padding: 18px 12px 22px;
+  }
+  #todo-priority {
+    width: 100%;
+  }
+  #todo-add {
+    width: 100%;
+  }
+}
