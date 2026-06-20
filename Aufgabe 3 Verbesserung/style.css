@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+    background-color: #fafafa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+caption {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+}
+
+thead tr th {
+    background-color: #f0f0f0;
+}
+
+/* Macht die Tabellenüberschrift für die Größe als klickbar erkennbar */
+#height {
+    cursor: pointer;
+    user-select: none;
+}
+
+#height:hover {
+    background-color: #e0e0e0;
+}
